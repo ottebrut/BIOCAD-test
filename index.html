@@ -196,7 +196,7 @@
                        <input type="radio"
                               name="report-type"
                               class="radio-types__input"
-                              id="radio-measuring" />
+                              id="radio-measuring" tabindex="-1" />
                        <span class="radio-types__checkmark" tabindex="0"></span>
                        <span class="radio-types__text">Measuring</span>
                    </label>
@@ -205,13 +205,13 @@
                        <input type="radio"
                               name="report-type"
                               class="radio-types__input"
-                              id="radio-using" />
+                              id="radio-using" tabindex="-1" />
                            <span class="radio-types__checkmark" tabindex="0"></span>
                        <span class="radio-types__text">Using</span>
                    </label>
                </div>
 
-                <button class="generate-report__button">
+                <button class="generate-report__button" onclick="generate()">
                     Generate report
                 </button>
             </div>
@@ -334,6 +334,10 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <div class="report__sorry-message">
+                    Sorry, we're not ready yet :(
+                </div>
             </div>
         </section>
     </main>

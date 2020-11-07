@@ -404,6 +404,10 @@ button:focus {
     border: none;
 }
 
+.report__sorry-message {
+    margin-top: 30px;
+}
+
 @media screen and (max-width: 1000px) {
     .scales-info {
         display: flex;
