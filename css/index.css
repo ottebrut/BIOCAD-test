@@ -1,0 +1,404 @@
+@font-face {
+    font-family: TT Norms;
+    font-style: normal;
+    font-weight: 400;
+    src: local('TT Norms Pro Regular'), url('TT Norms Pro Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: TT Norms;
+    font-style: normal;
+    font-weight: 500;
+    src: local('TT Norms Pro Medium'), url('TT Norms Pro Medium.woff') format('woff');
+}
+
+:root {
+    --light-black: #353535;
+    --light-grey: #8C8C8C;
+    --light-blue: #4990E2;
+    --grey-border-color: #E9E9E9;
+    --grey-report-color: #939da6;
+}
+
+select,
+button,
+label {
+    cursor: pointer;
+}
+
+input[type="radio"]:focus {
+    outline: none;
+}
+
+input[type="text"]:focus,
+.radio-types__checkmark:focus,
+select:focus,
+label:focus {
+    outline: none;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+button:focus {
+    outline: none;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.index {
+    width: 900px;
+    margin: 30px auto 0;
+
+    font-family: TT Norms, serif;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'lnum' on;
+}
+
+.filter {
+    width: 320px;
+
+    font-size: 0;
+}
+
+.filter__text,
+.filter__input,
+.filter__button {
+    line-height: 24px;
+    letter-spacing: 0.16px;
+}
+
+.filter__text {
+    display: inline-block;
+    margin-bottom: 16px;
+
+    color: var(--light-grey);
+    font-size: 16px;
+}
+
+.filter__input {
+    box-sizing: border-box;
+
+    width: 210px;
+    height: 30px;
+    padding-left: 12px;
+
+    border: 1px solid var(--grey-border-color);
+
+    color: var(--light-black);
+    font-size: 16px;
+}
+
+.filter__button {
+    width: 90px;
+    height: 40px;
+    margin-left: 20px;
+    padding: 0;
+
+    border: none;
+    border-radius: 3px;
+
+    background-color: var(--light-black);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.scales-info {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 320px 550px;
+    grid-template-rows: 80px 210px;
+
+    margin-top: 30px;
+}
+
+.scales-header {
+    display: flex;
+}
+
+.scales-header__text {
+    width: 225px;
+    margin-left: 20px;
+
+    color: var(--light-black);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+}
+
+.scales-info__data {
+    grid-row-end: span 2;
+}
+
+.scales-info__data {
+    padding: 20px 18.33px;
+}
+
+.scales-data {
+    border-radius: 5px;
+
+    background-color: #F7F7F7;
+    line-height: 21px;
+}
+
+.data-item {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.data-item__header {
+    color: var(--light-grey);
+}
+
+.data-item__main {
+    color: #454452;
+}
+
+.data-item__main_blue {
+    color: var(--light-blue);
+}
+
+.generate-report {
+    position: relative;
+
+    width: 221px;
+    height: 100%;
+}
+
+.generate-report__select {
+    width: 100%;
+    height: 30px;
+    padding-left: 12px;
+
+    border: 1px solid var(--grey-border-color);
+
+    color: var(--light-black);
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(../img/select.svg) calc(100% - 10px) / 10px no-repeat white;
+}
+
+/* START: Internet Explorer selector hackery */
+.generate-report__select::-ms-expand {
+    display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+
+/* Target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    .generate-report__select {
+        background: none\9;
+        padding: 5px\9;
+    }
+}
+/* END: Internet Explorer selector hackery */
+
+.generate-report__radio-types {
+    margin-top: 20px;
+}
+
+.radio-types__label {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.radio-types__label:not(:first-child) {
+    margin-top: 12px;
+}
+
+.radio-types__input {
+    position: absolute;
+    z-index: -1;
+
+    opacity: 0;
+}
+
+.radio-types__checkmark {
+    box-sizing: border-box;
+
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid #c1c1c1;
+    border-radius: 50%;
+}
+
+.radio-types__checkmark:after {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+
+    display: none;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background-color: var(--light-blue);
+    content: "";
+}
+
+.radio-types__input:checked ~ .radio-types__checkmark:after {
+    display: block;
+}
+
+.radio-types__text {
+    margin-left: 12px;
+
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.16px;
+}
+
+.generate-report__button {
+    position: absolute;
+    bottom: 0;
+
+    width: 180px;
+    height: 40px;
+
+    border: none;
+    border-radius: 3px;
+
+    background: var(--light-blue);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.index__report {
+    margin: 46px 0 106px;
+    padding: 40px 20px 60px 40px;
+}
+
+.report {
+    box-sizing: border-box;
+
+    width: 100%;
+
+    border: 1px dashed var(--grey-report-color);
+
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+}
+
+.report__title {
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.report__table {
+    margin-top: 27px;
+}
+
+.report-table {
+    width: 100%;
+}
+
+.report-table th, td {
+    text-align: left;
+    vertical-align: top;
+}
+
+.report-table th,
+.report-table__data-td,
+.report-table__variants-td {
+    white-space: pre-line;
+}
+
+.report-table th {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15px;
+    color: var(--grey-report-color);
+}
+
+.report-table tbody:before {
+    content: "";
+    display: block;
+    margin-top: 3px;
+}
+
+.report-table__data-td,
+.report-table__variants-td,
+.report-table__slope-td,
+.report-table__offset-td,
+.report-table__user-td {
+    height: 100px;
+    padding-top: 20px;
+
+    border-bottom: 1px solid var(--grey-border-color);
+
+    color: var(--light-black);
+}
+
+.report-table__variants-td,
+.report-table__slope-td,
+.report-table__offset-td {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.report-table__data-td {
+    width: 120px;
+
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.report-table__variants-td {
+     width: 240px;
+ }
+
+.report-table__slope-td,
+.report-table__offset-td {
+    position: relative;
+
+    width: 120px;
+}
+
+.report-table__user-td {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.report-table__slope-td_tick,
+.report-table__offset-td_tick,
+.report-table__slope-td_cross {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+
+    width: 16px;
+    height: 16px;
+}
+
+.report-table__slope-td_tick,
+.report-table__offset-td_tick {
+    background: url(../img/tick.svg) no-repeat;
+}
+
+.report-table__slope-td_cross {
+    background: url(../img/cross.svg) no-repeat;
+}
+
+.report-table tr:last-child td {
+    border: none;
+}
+
+@media screen and (max-width: 1000px) {
+    html, body {
+        min-width: 1000px;
+    }
+
+    .index {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+}

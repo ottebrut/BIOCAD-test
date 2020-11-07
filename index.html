@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIOCAD</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <main class="index">
+        <form class="filter index__filter" onsubmit="return false;">
+            <label for="filter__input-id" class="filter__text">
+                Enter inventory number, guid or bims id
+            </label>
+            <input type="text" class="filter__input" id="filter__input-id" value="A-001234">
+            <button type="submit" class="filter__button">
+                Search
+            </button>
+        </form>
+
+        <div class="scales-info">
+            <section class="scales-info__header scales-header">
+                <div class="scales-header__logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path d="M22.3506 10.0006C21.8935 10.0006 21.5228 9.62745 21.5228 9.16724V5.83414C21.5228 5.37393 21.8935 5.00082 22.3506 5.00082C22.8078 5.00082 23.1784 5.37393 23.1784 5.83414V9.16732C23.1783 9.62745 22.8078 10.0006 22.3506 10.0006Z" fill="#FFA000"/>
+                            <path d="M22.3506 6.66736C23.7221 6.66736 24.8339 5.54813 24.8339 4.1675C24.8339 2.78686 23.7221 1.66763 22.3506 1.66763C20.9791 1.66763 19.8673 2.78686 19.8673 4.1675C19.8673 5.54813 20.9791 6.66736 22.3506 6.66736Z" fill="#FFC107"/>
+                            <path d="M19.0395 8.33398H25.6617C26.1188 8.33398 26.4894 8.70709 26.4894 9.1673V20.8333C26.4894 21.2935 26.1188 21.6666 25.6617 21.6666H19.0395C18.5824 21.6666 18.2117 21.2935 18.2117 20.8333V9.16722C18.2117 8.70701 18.5824 8.33398 19.0395 8.33398Z" fill="#FFD54F"/>
+                            <path d="M35.2042 21.6666H4.53041C2.96135 21.6716 1.52576 20.7784 0.82865 19.3633L0.0886247 17.8718C-0.115705 17.4599 0.0502887 16.9592 0.459491 16.7535C0.868616 16.5478 1.36598 16.7149 1.57038 17.1268L2.31041 18.6184C2.72885 19.4668 3.58954 20.0023 4.53049 19.9999H35.2043C36.1459 20.003 37.0073 19.4672 37.426 18.6184L38.166 17.1268C38.3704 16.7149 38.8677 16.5478 39.2769 16.7535C39.6861 16.9591 39.8521 17.4598 39.6478 17.8718L38.9078 19.3633C38.2102 20.779 36.7739 21.6723 35.2042 21.6666Z" fill="#CFD8DC"/>
+                            <path d="M7.45078 24.9997C6.99362 24.9997 6.62299 24.6266 6.62299 24.1664V20.8332C6.62299 20.373 6.99362 19.9999 7.45078 19.9999C7.90794 19.9999 8.27858 20.373 8.27858 20.8332V24.1664C8.2785 24.6266 7.90794 24.9997 7.45078 24.9997Z" fill="#CFD8DC"/>
+                            <path d="M32.2838 24.9997C31.8267 24.9997 31.4561 24.6266 31.4561 24.1664V20.8332C31.4561 20.373 31.8267 19.9999 32.2838 19.9999C32.741 19.9999 33.1116 20.373 33.1116 20.8332V24.1664C33.1115 24.6266 32.741 24.9997 32.2838 24.9997Z" fill="#CFD8DC"/>
+                            <path d="M39.651 24.5331L36.522 30.8328H3.21254L0.0835735 24.5331C-0.0386518 24.2776 -0.0262353 23.9775 0.11671 23.7332C0.272305 23.488 0.539649 23.3378 0.828566 23.3332H38.906C39.1949 23.3378 39.4623 23.488 39.6178 23.7332C39.7608 23.9775 39.7732 24.2776 39.651 24.5331Z" fill="#607D8B"/>
+                            <path d="M39.6178 37.9324C39.4622 38.1775 39.1949 38.3277 38.906 38.3324H0.828566C0.539649 38.3277 0.272227 38.1775 0.11671 37.9324C-0.0262353 37.688 -0.0386518 37.388 0.0835735 37.1324L3.21254 30.8328H36.522L39.651 37.1324C39.7732 37.388 39.7608 37.6879 39.6178 37.9324Z" fill="#455A64"/>
+                            <path d="M17.384 34.9992H5.79517C5.33801 34.9992 4.96738 34.6261 4.96738 34.1659C4.96738 33.7057 5.33801 33.3326 5.79517 33.3326H17.3839C17.8411 33.3326 18.2117 33.7057 18.2117 34.1659C18.2117 34.6261 17.8412 34.9992 17.384 34.9992Z" fill="#B0BEC5"/>
+                            <path d="M24.0061 34.9992H22.3506C21.8934 34.9992 21.5228 34.6261 21.5228 34.1659C21.5228 33.7057 21.8934 33.3326 22.3506 33.3326H24.0061C24.4633 33.3326 24.8339 33.7057 24.8339 34.1659C24.8339 34.6261 24.4633 34.9992 24.0061 34.9992Z" fill="#B0BEC5"/>
+                            <path d="M28.9727 34.9992H27.3172C26.86 34.9992 26.4894 34.6261 26.4894 34.1659C26.4894 33.7057 26.86 33.3326 27.3172 33.3326H28.9727C29.4299 33.3326 29.8005 33.7057 29.8005 34.1659C29.8005 34.6261 29.4299 34.9992 28.9727 34.9992Z" fill="#B0BEC5"/>
+                            <path d="M33.9394 34.9992H32.2838C31.8267 34.9992 31.4561 34.6261 31.4561 34.1659C31.4561 33.7057 31.8267 33.3326 32.2838 33.3326H33.9394C34.3965 33.3326 34.7672 33.7057 34.7672 34.1659C34.7672 34.6261 34.3965 34.9992 33.9394 34.9992Z" fill="#B0BEC5"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="39.7351" height="40" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="scales-header__text">
+                    Аналитические весы OHAUS Adventurer АХ324 (B715976163)
+                </div>
+            </section>
+
+            <section class="scales-info__data scales-data">
+                <!--Тип оборудования-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Тип оборудования:
+                    </span>
+                    <span class="data-item__main">
+                        Весы
+                    </span>
+                </div>
+
+                <!--Статус-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Статус:
+                    </span>
+                    <span class="data-item__main">
+                        Готов к работе
+                    </span>
+                </div>
+
+                <!--Изготовитель-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Изготовитель:
+                    </span>
+                    <span class="data-item__main">
+                        Ohaus
+                    </span>
+                </div>
+
+                <!--Модель-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Модель:
+                    </span>
+                    <span class="data-item__main">
+                        AX-123
+                    </span>
+                </div>
+
+                <!--Ответственное подразделение (ремонт)-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Ответственное подразделение (ремонт):
+                    </span>
+                    <span class="data-item__main">
+                        Группа обслуживания лабораторного оборудования
+                    </span>
+                </div>
+
+                <!--Эксплуатирующее подразделение-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Эксплуатирующее подразделение:
+                    </span>
+                    <span class="data-item__main">
+                        Химико-аналитическая лаборатория 2.0
+                    </span>
+                </div>
+
+                <!--МОЛ-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        МОЛ:
+                    </span>
+                    <span class="data-item__main">
+                        Иванов Иван Иванович
+                    </span>
+                </div>
+
+                <!--Территория-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Территория:
+                    </span>
+                    <span class="data-item__main">
+                        г. Санкт-Петербург (Нойдорф)
+                    </span>
+                </div>
+
+                <!--Серийный номер-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Серийный номер:
+                    </span>
+                    <span class="data-item__main">
+                        B715976163
+                    </span>
+                </div>
+
+                <!--GUID-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        GUID:
+                    </span>
+                    <span class="data-item__main data-item__main_blue">
+                        508b2a71-662e-4983-ae0c-3cb0c1cd21c5
+                    </span>
+                </div>
+
+                <!--Bims ID-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Bims ID:
+                    </span>
+                    <span class="data-item__main data-item__main_blue">
+                        49db8db1-585f-4b9e-bbf0-8a59698edc8b
+                    </span>
+                </div>
+
+                <!--Tam-->
+                <div class="data-item">
+                    <span class="data-item__header">
+                        Tam:
+                    </span>
+                    <span class="data-item__main data-item__main_blue">
+                        А-001234
+                    </span>
+                </div>
+            </section>
+
+            <div class="scales-info__generate-report generate-report">
+                <select name="months" class="generate-report__select">
+                    <option value="1 month">1 month</option>
+                    <option value="2 month">2 month</option>
+                    <option value="3 month">3 month</option>
+                    <option value="4 month">4 month</option>
+                    <option value="5 month">5 month</option>
+                    <option value="6 month">6 month</option>
+                </select>
+
+               <div class="generate-report__radio-types radio-types">
+                   <label class="radio-types__label">
+                       <input type="radio"
+                              name="report-type"
+                              class="radio-types__input"
+                              id="radio-calibration" tabindex="-1" checked />
+                       <span class="radio-types__checkmark" tabindex="0"></span>
+                       <span class="radio-types__text">Calibration</span>
+                   </label>
+
+                   <label class="radio-types__label">
+                       <input type="radio"
+                              name="report-type"
+                              class="radio-types__input"
+                              id="radio-measuring" />
+                       <span class="radio-types__checkmark" tabindex="0"></span>
+                       <span class="radio-types__text">Measuring</span>
+                   </label>
+
+                   <label class="radio-types__label">
+                       <input type="radio"
+                              name="report-type"
+                              class="radio-types__input"
+                              id="radio-using" />
+                           <span class="radio-types__checkmark" tabindex="0"></span>
+                       <span class="radio-types__text">Using</span>
+                   </label>
+               </div>
+
+                <button class="generate-report__button">
+                    Generate report
+                </button>
+            </div>
+        </div>
+
+        <section class="report index__report">
+            <div class="report__title">
+                Calibration report
+            </div>
+
+            <table class="report-table report__table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Used buffer solutions</th>
+                        <th>Slope, %
+                            Norm 95-105</th>
+                        <th>Offset, mV
+                            Norm ±(0-20)</th>
+                        <th>User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="report-table__data-td">04.10.19
+                            10:23</td>
+                        <td class="report-table__variants-td">В1: № 2000460789536: pH 1.09
+                            В2: № 2000460789536: pH 2.00
+                            В3: № 2000460789536: pH 4.01
+                            В4: № 2000460789536: pH 7.00
+                            В5: № 2000460789536: pH 9.21</td>
+                        <td class="report-table__slope-td">
+                            98.7
+                            <span aria-label="normal" class="report-table__slope-td_tick"></span>
+                        </td>
+                        <td class="report-table__offset-td">
+                            -0.3
+                            <span aria-label="normal" class="report-table__offset-td_tick"></span>
+                        </td>
+                        <td class="report-table__user-td">
+                            Иванов Генадий Петрович
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="report-table__data-td">04.10.19
+                            10:23</td>
+                        <td class="report-table__variants-td">В1: № 2000460789536: pH 1.09
+                            В2: № 2000460789536: pH 2.00
+                            В3: № 2000460789536: pH 4.01
+                            В4: № 2000460789536: pH 7.00
+                            В5: № 2000460789536: pH 9.21</td>
+                        <td class="report-table__slope-td">
+                            98.7
+                            <span aria-label="normal" class="report-table__slope-td_tick"></span>
+                        </td>
+                        <td class="report-table__offset-td">
+                            -0.3
+                            <span aria-label="normal" class="report-table__offset-td_tick"></span>
+                        </td>
+                        <td class="report-table__user-td">
+                            Петров Иван Генадьевич
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="report-table__data-td">04.10.19
+                            10:23</td>
+                        <td class="report-table__variants-td">В1: № 2000460789536: pH 1.09
+                            В2: № 2000460789536: pH 2.00
+                            В3: № 2000460789536: pH 4.01
+                            В4: № 2000460789536: pH 7.00
+                            В5: № 2000460789536: pH 9.21</td>
+                        <td class="report-table__slope-td">
+                            98.7
+                            <span aria-label="normal" class="report-table__slope-td_tick"></span>
+                        </td>
+                        <td class="report-table__offset-td">
+                            -0.3
+                            <span aria-label="normal" class="report-table__offset-td_tick"></span>
+                        </td>
+                        <td class="report-table__user-td">
+                            Петров Генадий Иванович
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="report-table__data-td">04.10.19
+                            10:23</td>
+                        <td class="report-table__variants-td">В1: № 2000460789536: pH 1.09
+                            В2: № 2000460789536: pH 2.00
+                            В3: № 2000460789536: pH 4.01
+                            В4: № 2000460789536: pH 7.00
+                            В5: № 2000460789536: pH 9.21</td>
+                        <td class="report-table__slope-td">
+                            90.1
+                            <span aria-label="not normal" class="report-table__slope-td_cross"></span>
+                        </td>
+                        <td class="report-table__offset-td">
+                            -0.5
+                            <span aria-label="normal" class="report-table__offset-td_tick"></span>
+                        </td>
+                        <td class="report-table__user-td">
+                            Генадьев Иван Петрович
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
