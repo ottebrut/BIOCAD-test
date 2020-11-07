@@ -46,7 +46,9 @@ button:focus {
 }
 
 .index {
-    width: 900px;
+    width: 90%;
+    max-width: 900px;
+    min-width: 280px;
     margin: 30px auto 0;
 
     font-family: TT Norms, serif;
@@ -117,6 +119,10 @@ button:focus {
 
     width: 320px;
     height: 80px;
+}
+
+.scales-header__logo {
+    margin-top: 5px;
 }
 
 .scales-header__text {
@@ -294,7 +300,6 @@ button:focus {
 }
 
 .report__container {
-    min-width: 680px;
     padding: 40px 20px 60px 40px;
 }
 
@@ -311,7 +316,6 @@ button:focus {
 
 .report-table {
     width: 100%;
-    min-width: 680px;
 }
 
 .report-table th, td {
@@ -319,7 +323,8 @@ button:focus {
     vertical-align: top;
 }
 
-.report-table th {
+.report-table th,
+.report-table td:before {
     font-size: 13px;
     font-weight: 400;
     line-height: 15px;
@@ -400,11 +405,6 @@ button:focus {
 }
 
 @media screen and (max-width: 1000px) {
-    .index {
-        width: 90%;
-        min-width: 320px;
-    }
-
     .scales-info {
         display: flex;
         flex-direction: column;
@@ -415,5 +415,147 @@ button:focus {
 
         width: 100%;
         max-width: 660px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .report-table thead {
+        display: none;
+    }
+
+    .report-table tbody:before {
+        display: none;
+    }
+
+    .report-table td:before {
+        width: 150px;
+        min-width: 150px;
+
+        content: attr(label);
+    }
+
+    .report-table .report-table__slope-td:before,
+    .report-table .report-table__offset-td:before {
+        width: 84px;
+        min-width: 84px;
+        padding-right: 66px;
+
+        content: attr(label);
+    }
+
+    .report-table td {
+        display: flex;
+
+        width: 350px;
+        padding: 0;
+
+        border: none;
+    }
+
+    .report-table__data-td {
+        height: 60px;
+    }
+
+    .report-table__variants-td {
+        height: 100px;
+    }
+
+    .report-table__slope-td {
+        height: 50px;
+    }
+
+    .report-table__offset-td {
+        height: 50px;
+    }
+
+    .report-table__slope-td_tick,
+    .report-table__offset-td_tick,
+    .report-table__slope-td_cross {
+        top: 0;
+        left: 190px;
+    }
+
+    .report-table .report-table__user-td {
+        height: 40px;
+    }
+
+    .report-table tr:after {
+        display: block;
+
+        width: 100%;
+        margin-bottom: 30px;
+
+        border-bottom: 1px solid var(--grey-border-color);
+
+        content: "";
+    }
+
+    .report-table tr:last-child:after {
+        margin-bottom: 0;
+        border: 0;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .report__container {
+        padding: 30px 20px;
+    }
+
+    .report-table td:before {
+        width: 100px;
+        min-width: 100px;
+    }
+
+    .report-table .report-table__slope-td:before,
+    .report-table .report-table__offset-td:before {
+        padding-right: 16px;
+    }
+
+    .report-table td {
+        display: flex;
+
+        width: 310px;
+        padding: 0;
+
+        border: none;
+    }
+
+    .report-table__slope-td_tick,
+    .report-table__offset-td_tick,
+    .report-table__slope-td_cross {
+        left: 140px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    html, body {
+        min-width: 300px;
+    }
+
+    .index {
+        margin-top: 20px;
+    }
+
+    .filter {
+        width: 280px;
+    }
+
+    .filter__text {
+        margin-bottom: 10px;
+
+        font-size: 15px;
+    }
+
+    .filter__input {
+        width: 180px;
+        font-size: 15px;
+    }
+
+    .filter__button {
+        width: 80px;
+    }
+
+    .scales-header {
+        width: 280px;
     }
 }
